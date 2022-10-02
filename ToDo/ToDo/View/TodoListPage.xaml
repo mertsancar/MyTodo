@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDo.View.TodoListPage"
+             Title="List Name">
+    <StackLayout>
+        <StackLayout Spacing="25">
+            <Label Text="Items" HorizontalOptions="Center" FontSize="Title" Padding="30,10,30,10"/>
+
+            <AbsoluteLayout x:Name="LoadingIcon" IsVisible="true">
+                <ActivityIndicator IsRunning="True" 
+                           Color="LightSteelBlue" 
+                           AbsoluteLayout.LayoutBounds=".5, .5, 100, 100"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           ></ActivityIndicator>
+            </AbsoluteLayout>
+
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout x:Name="ItemListStackLayout" IsVisible="false">
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            
+        </StackLayout>
+        <Button Margin="30" Command="{Binding AddItemPopupCommand}" VerticalOptions="EndAndExpand" Text="Add Item"></Button>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDo.MainPage"
+             Title="ToDo">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Log out"
+                 Command="{Binding LogoutCommand}"
+                 Order="Secondary"
+                 Priority="0" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Spacing="20">
+
+        <Label Text="Lists" HorizontalOptions="Center" FontSize="Title" Padding="30,10,30,10"/>
+
+        <AbsoluteLayout x:Name="LoadingIcon" IsVisible="true">
+            <ActivityIndicator IsRunning="True" 
+                           Color="LightSteelBlue" 
+                           AbsoluteLayout.LayoutBounds=".5, .5, 100, 100"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           ></ActivityIndicator>
+        </AbsoluteLayout>
+
+        <StackLayout>
+            <ScrollView>
+                <StackLayout x:Name="ListsStackLayout" IsVisible="false">
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <Button Margin="30" Command="{Binding AddListCommand}" VerticalOptions="EndAndExpand" Text="Add List"></Button>
+
+    </StackLayout>
+
+
+</ContentPage>

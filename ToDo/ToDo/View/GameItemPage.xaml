@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDo.View.GameItemPage"
+             Title="{Binding TitleName}">
+    <StackLayout Margin="30">
+        <StackLayout Spacing="25" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+
+            <Label Text="{Binding ItemName}" TextTransform="Uppercase" FontSize="30" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" ></Label>
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Assign to: " FontSize="Title" FontAttributes="Italic" ></Label>
+                <Button Text="{Binding AssignTo}" Command="{Binding AssignToCommand}" BackgroundColor="LightBlue" TextTransform="None" FontSize="17" HeightRequest="40" WidthRequest="150"></Button>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label  Text="Platform:  " FontSize="Title" FontAttributes="Italic" ></Label>
+                <Button Text="{Binding GamePlatform}" Command="{Binding GamePlatformCommand}" BackgroundColor="LightBlue" TextTransform="None" FontSize="17" HeightRequest="40" WidthRequest="150"></Button>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label  Text="Genre:       " FontSize="Title" FontAttributes="Italic" ></Label>
+                <Button Text="{Binding GameGenre}" Command="{Binding GameGenreCommand}" BackgroundColor="LightBlue" TextTransform="None" FontSize="17" HeightRequest="40" WidthRequest="150"></Button>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Notes:" FontSize="Title" FontAttributes="Italic"></Label>
+                <Editor Text="{Binding NotesBox}" BackgroundColor="LightGray"  Placeholder="Note here..."  MaxLength="100" HeightRequest="275" WidthRequest="500" />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Button x:Name="myButton" Text="Done" Command="{Binding ClickedDoneCommand}" CommandParameter="{x:Reference myButton}" BackgroundColor="LightGreen"></Button>
+                <Button Text="Delete" Command="{Binding ClickedDeleteCommand}" BackgroundColor="PaleVioletRed"></Button>
+                <Button Text="Save Changes" Command="{Binding ClickedSaveChangesCommand}" BackgroundColor="CadetBlue"></Button>
+            </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
